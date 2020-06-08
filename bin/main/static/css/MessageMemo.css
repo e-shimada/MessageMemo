@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+/*見出し以下の登録フォーム*/
+.box{
+
+    margin-top: 20px;
+    margin-left: 25%;
+    height: 800px;
+    width: 500px;
+    /*border: 1px solid silver;*/
+    /*background-color: silver;*/
+
+}
+
+/*～さん宛て*/
+.to_user{
+    /*float: left;*/
+    margin-top: 70px;
+    margin-left: 50px;
+}
+
+/*受電日時*/
+.get_call{
+    float: left;
+    margin-top: 30px;
+    margin-left: 100px;
+}
+
+/*年月日表示*/
+.today_year{
+
+    clear: both;
+    margin-top: 30px;
+    margin-left: 140px;
+
+
+}
+
+/*午前・午後のチェックボタン*/
+.AM{
+
+    float: left; 
+    margin-top: 10px;
+    margin-left: 180px;
+}
+
+.morning{
+
+    display: block;
+    
+
+}
+
+/*何時何分のボックス*/
+.time{
+
+    float: left; 
+    margin-top: 20px;
+    margin-left: 20px;
+
+}
+
+/*会社名*/
+.company_place{
+    clear: both;
+    margin-top: 10px;
+    margin-left: 100px;
+}
+
+/*会社リストボックス*/
+.company{
+
+    float: left;
+    margin-top: 10px;
+    margin-left: 140px;
+
+}
+
+/*氏名*/
+.name{
+    clear: both;
+    margin-left: 100px;
+    margin-top: 60px;
+}
+
+/*氏名記入欄*/
+.company_name{
+
+    float: left;
+    margin-top: 10px;
+    margin-left: 140px;
+
+}
+
+.support{
+    clear: both;
+    margin-top: 60px;
+    margin-left: 100px;
+}
+
+
+
+.list-unstyled{
+
+    float: left;
+    clear: both;
+    margin-top: 5px;
+    margin-left: 30%;
+
+
+}
+
+.check1{
+
+    display: block;
+
+
+}
+
+.check2{
+
+    display: block;
+}
+
+
+.memo{
+
+    float: left;
+    clear: both;
+    margin: 10px;
+    margin-left: 140px;
+
+}
+
+.get_info{
+    clear: both;
+    margin-left: 100px;
+}
+
+.from_user{
+
+    float: left;
+    margin-top: 5px;
+    margin-left: 140px;
+}
+
+.entry{
+    clear: both;
+    float: left;
+    margin-top: 40px;
+    margin-left: 290px;
+}
