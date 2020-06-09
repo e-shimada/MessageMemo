@@ -2,14 +2,12 @@
 
 /*見出し以下の登録フォーム*/
 .box{
-
-    margin-top: 20px;
+	margin-top: 20px;
     margin-left: 25%;
     height: 800px;
     width: 500px;
     /*border: 1px solid silver;*/
     /*background-color: silver;*/
-
 }
 
 /*～さん宛て*/
@@ -28,36 +26,28 @@
 
 /*年月日表示*/
 .today_year{
-
-    clear: both;
+	clear: both;
     margin-top: 30px;
     margin-left: 140px;
-
-
 }
 
-/*午前・午後のチェックボタン*/
+/*午前・午後のチェックボックス*/
 .AM{
-
-    float: left; 
+	float: left; 
     margin-top: 10px;
     margin-left: 180px;
 }
 
+/*AMボタン*/
 .morning{
-
-    display: block;
-    
-
+	display: block;
 }
 
 /*何時何分のボックス*/
 .time{
-
-    float: left; 
+	float: left; 
     margin-top: 20px;
     margin-left: 20px;
-
 }
 
 /*会社名*/
@@ -69,11 +59,9 @@
 
 /*会社リストボックス*/
 .company{
-
-    float: left;
+	float: left;
     margin-top: 10px;
     margin-left: 140px;
-
 }
 
 /*氏名*/
@@ -85,13 +73,12 @@
 
 /*氏名記入欄*/
 .company_name{
-
-    float: left;
+	float: left;
     margin-top: 10px;
     margin-left: 140px;
-
 }
 
+/*対応*/
 .support{
     clear: both;
     margin-top: 60px;
@@ -99,51 +86,46 @@
 }
 
 
-
+/*対応のチェックボックス*/
 .list-unstyled{
-
-    float: left;
+	float: left;
     clear: both;
     margin-top: 5px;
     margin-left: 30%;
-
-
 }
 
+/*もう一度お願いします*/
 .check1{
-
-    display: block;
-
-
+	display: block;
 }
 
+/*折り返しお願いします*/
 .check2{
-
-    display: block;
+	display: block;
 }
 
-
+/*メモ欄*/
 .memo{
-
-    float: left;
+	float: left;
     clear: both;
     margin: 10px;
     margin-left: 140px;
-
 }
 
+/*受電者*/
 .get_info{
     clear: both;
     margin-left: 100px;
 }
 
+/*受電者リストボックス*/
 .from_user{
-
-    float: left;
+	float: left;
     margin-top: 5px;
     margin-left: 140px;
 }
 
+/*登録ボタン*/
 .entry{
     clear: both;
     float: left;
