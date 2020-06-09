@@ -45,14 +45,17 @@ function checkbox(){
 function ckbox1(){
     document.forms['form'].elements['check2'].checked=false;
     document.forms['form'].elements['check3'].checked=false;
+    check_readonly();
  }
  function ckbox2(){
     document.forms['form'].elements['check1'].checked=false;
     document.forms['form'].elements['check3'].checked=false;
+    check_readonly();
  }
  function ckbox3(){
     document.forms['form'].elements['check1'].checked=false;
     document.forms['form'].elements['check2'].checked=false;
+    check_readonly();
  }
   window.addEventListener('DOMContentLoaded',checkbox,false);
 
@@ -62,14 +65,26 @@ document.getElementById("print").onclick = function(){
 }
 
 //読み取り専用
+function check_readonly(){
+	let t = document.getElementById("target");
+	let c3= document.getElementById("check3");//check_add=3
+	let result = c3.checked; //resultはcheck3がチェックされてる
+  if (result == true) {
+      t.readOnly = false;
+  } else {
+      t.readOnly = true;
+      target.value ="";
+  }
 
-document.getElementById("message").onclick = function() {
-    let txta = document.getElementById("txta");
-        if (document.getElementById("message").checked) {
-            txta.readOnly = false;
-        } else {
-            txta.readOnly = true;
-        }
 }
+
+////document.getElementById("check3"").onclick = function() {
+//    let target = document.getElementById("target");
+//        if (document.getElementById("check3").checked) {
+//            target.readOnly = false;
+//        } else {
+//            target.readOnly = true;
+//        }
+//}
 
 
