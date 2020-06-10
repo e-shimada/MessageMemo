@@ -134,9 +134,11 @@
                 <!--会社名のリストボックス-->
                 <div class="company">
                     <select style="width: 390px;">
-                        <option>
-
-                        </option>
+                  
+                    	<option value=""></option> <!-- 初期表示・最初の画面は空白 -->
+                    	<!-- 会社名のリストを選択 -->	
+                        <option th:each="customer : ${customerlist}" th:object="${customer}" th:value="*{c_num}" id="td_name" th:text="*{c_name}">
+						</option>	
                     </select>
                 </div>
 
@@ -176,9 +178,10 @@
                 <!--受電者リストボックス-->
                 <div class="from_user">
                     <select style="width: 200px;">
-                        <option>
-
-                        </option>
+                    	<option value=""></option>　<!-- 初期表示・最初の画面は空白 -->
+                    	<!-- 受電者のリストを選択 -->
+                        <option th:each="employee : ${employeelist}" th:object="${employee}" th:value="*{e_num}" id="td_num" th:text="*{e_name}">
+                       	</option>
                     </select>
                 </div>
 
@@ -189,6 +192,8 @@
 
         </div>
         </form>
-        <script src="messagememo.js" type="text/javascript"></script>
+        <script th:src="@{/MessageMemo.js}" type="text/javascript"></script>
+        
+       
     </body>
 </html>

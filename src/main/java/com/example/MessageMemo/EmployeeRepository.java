@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 //ここでは、エンティティのクラスとエンティティIDのクラス、 CustomerEntity と String を指定します。
-public interface MessageMemoRepository extends CrudRepository<MmessageMemo, String> {
+public interface EmployeeRepository extends CrudRepository<Employee, String> {
 	
 }
