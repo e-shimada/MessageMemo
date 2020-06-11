@@ -13,15 +13,15 @@
     <body onload="setDate(), setTime()">
         <!--見出しMESSAGE MEMOと印刷ボタン表示-->
         <nav class="navbar navbar-light bg-info text-white">
-            <h1 class="ml-2">MESSAGE MEMO</h1>
-            <input id="print" type="button" class="btn btn-lg btn-outline-light col-1" value="印刷">
+        	<a href="http://localhost:8080/msgmemo/inputForm" class="ml-2 text-white h1">MESSAGE MEMO</a>
+          	<input id="print" type="button" class="btn btn-lg btn-outline-light col-1" value="印刷">
         </nav>
         
-       <form id="form">
+       <form id="form" name="form" method="post" onsubmit="return formCheck()">
        <div class="box">
             <!--～さん宛て-->
             <div class="to_user">
-                <input type="text" maxlength=40 name="to_user" style="width: 200px; height: 30px;"><span>さん宛て</span>
+                <input type="text" maxlength=40 name="to_user" style="width: 200px; height: 30px;" required="required"><span>さん宛て</span>
             </div>
             
             <!--受電日時 年月日-->
@@ -30,24 +30,25 @@
             </div>
 
             <div class="today_year">
-                <input type="text" size="4" oninput="value = value.replace(/[^0-9]+/i,'');" name="today_year" id="today_year"><span>年</span>
-                <input type="text" size="4" oninput="value = value.replace(/[^0-9]+/i,'');" name="today_month" id="today_month"><span>月</span>
-                <input type="text" size="4" oninput="value = value.replace(/[^0-9]+/i,'');" name="today_day" id="today_day"><span>日</span>
+                <input type="text" size="4" maxlength="4" oninput="value = value.replace(/[^0-9]+/i,'');" name="today_year" id="today_year" required="required"><span>年</span>
+                <input type="text" size="4" maxlength="2" oninput="value = value.replace(/[^0-9]+/i,'');" name="today_month" id="today_month" required="required"><span>月</span>
+                <input type="text" size="4" maxlength="2" oninput="value = value.replace(/[^0-9]+/i,'');" name="today_day" id="today_day" required="required"><span>日</span>
             </div>
             
             <!--AM/PMのチェックボックス-->
             <div class="AM">
                 <div class="morning">
-                    <input type="radio" name="radio"><span>AM</span>
+                    <input type="radio" name="radio" id="am" required="required"><span>AM</span>
+                
                 </div>
-                    <input type="radio" name="radio"><span>PM</span>
+                    <input type="radio" name="radio" id="pm" required="required"><span>PM</span>
                 
             </div>
             
             <!--時間-->
             <div class="time">
                 
-                    <select id="hour" name="hour">
+                    <select id="hour" name="hour" required="required">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -62,7 +63,7 @@
                         <option value="12">12</option>
                     </select><span>時</span>
                                           
-                    <select id="minute" name="minute">
+                    <select id="minute" name="minute" required="required">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -134,11 +135,14 @@
                 <!--会社名のリストボックス-->
                 <div class="company">
                     <select style="width: 390px;">
-                  
-                    	<option value=""></option> <!-- 初期表示・最初の画面は空白 -->
+                  		
+                  		<!-- 初期表示・最初の画面は空白 -->
+                    	<option value=""></option> 
+                    	
                     	<!-- 会社名のリストを選択 -->	
                         <option th:each="customer : ${customerlist}" th:object="${customer}" th:value="*{c_num}" id="td_name" th:text="*{c_name}">
 						</option>	
+                    
                     </select>
                 </div>
 
@@ -149,7 +153,7 @@
            
                 <!--氏名記入欄-->
                 <div class="company_name">
-                    <input type="text" size="50" maxlength="40" name="company_name">
+                    <input type="text" size="50" maxlength="40" name="company_name" required="required">
                 </div>
 
                 <!--対応-->
@@ -158,14 +162,21 @@
         　                          </div>
            
                 <!--対応のチェックリスト-->
-                <ul class="list-unstyled list">
-                    <li><input type="checkbox" name="check1" id="check1" ><span>もう一度お願いします</span></li>
-                    <li><input type="checkbox" name="check2" id="check2"><span>折り返しお願いします</span></li>
-                    <li><input type="checkbox" name="check3" id="check3"><span>伝言あります</span>
-               　　　　　　　　</ul>
+                    <div class="deal_with">
+              		<p id="notice-input-text-1" style="display: none; color: red;"> 【対応のいずれかにチェックして下さい】</p>
+              		</div>
+                	<ul class="list-unstyled list">
+                    	<li><input type="checkbox" name="check1" id="check1" ><span>もう一度お願いします</span></li>
+                    	<li><input type="checkbox" name="check2" id="check2"><span>折り返しお願いします</span></li>
+                    	<li><input type="checkbox" name="check3" id="check3"><span>伝言あります</span>
+               　　　　　　　　		</ul>
+               
 
                 
                 <!--memo欄-->
+                <div class="comment">
+                <p id="notice-input-text-2" style="display: none; color: red;" class="text-right"> 【伝言内容を入力して下さい】</p>
+                </div>
                 <div class="memo">
                     <textarea readonly id="target" rows="5" cols="55" maxlength="256" name="memo"></textarea>                                                                                                                                                                                             
                 </div>
@@ -177,7 +188,7 @@
         
                 <!--受電者リストボックス-->
                 <div class="from_user">
-                    <select style="width: 200px;">
+                    <select style="width: 200px;" required="required">
                     	<option value=""></option>　<!-- 初期表示・最初の画面は空白 -->
                     	<!-- 受電者のリストを選択 -->
                         <option th:each="employee : ${employeelist}" th:object="${employee}" th:value="*{e_num}" id="td_num" th:text="*{e_name}">

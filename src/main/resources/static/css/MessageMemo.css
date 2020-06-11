@@ -85,6 +85,12 @@
     margin-left: 100px;
 }
 
+/*対応のいずれかにチェックしてください*/
+.deal_with{
+	float: left;
+	margin-left: 25%;
+}
+
 
 /*対応のチェックボックス*/
 .list-unstyled{
@@ -104,6 +110,11 @@
 	display: block;
 }
 
+/*伝言メモの内容を入力してください*/
+.comment{
+	margin-right: 30%;
+	margin-left: 25%;
+}
 /*メモ欄*/
 .memo{
 	float: left;
