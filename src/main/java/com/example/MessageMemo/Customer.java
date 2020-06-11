@@ -1,7 +1,7 @@
 package com.example.MessageMemo; 
 
 
-import java.sql.Timestamp; 
+//import java.sql.Timestamp; 
 
 import javax.persistence.Column; //javax.persistenceパッケージ
 import javax.persistence.Entity;

@@ -1,7 +1,7 @@
 package com.example.MessageMemo; //フィールド
 
 
-import java.sql.Timestamp;        //import名前を宣言  java.sql.Timestampは小数点以下の時間数値(ミリ秒)まで保持することが出来る
+//import java.sql.Timestamp;        //import名前を宣言  java.sql.Timestampは小数点以下の時間数値(ミリ秒)まで保持することが出来る
 
 import javax.persistence.Column;  //javax.persistenceパッケージ
 import javax.persistence.Entity;
