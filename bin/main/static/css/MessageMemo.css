@@ -91,6 +91,12 @@
 	margin-left: 25%;
 }
 
+/*伝言内容を入力してください*/
+.comment{
+	float: left;
+	margin-left: 30%;
+}
+
 
 /*対応のチェックボックス*/
 .list-unstyled{
@@ -110,11 +116,6 @@
 	display: block;
 }
 
-/*伝言メモの内容を入力してください*/
-.comment{
-	margin-right: 30%;
-	margin-left: 25%;
-}
 /*メモ欄*/
 .memo{
 	float: left;
