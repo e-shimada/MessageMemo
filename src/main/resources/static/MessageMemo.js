@@ -10,33 +10,7 @@ function setDate(){
     document.getElementById("today_day").value=nowDay;
 }
 
-// システム日時
-//function setTime() {
-//	let today = new Date();
-//	let nowHour = today.getHours();
-//	let nowMinute = today.getMinutes();
-//	
-//	if(nowHour >= 0 && nowHour <= 11) {
-//		if(nowHour == 0) {
-//			document.getElementById("hour").value = nowHour + 12;
-//		} else {
-//			document.getElementById("hour").value = nowHour;
-//		}
-//		let check_am = document.getElementById("radio_1");
-//		check_am.checked = true;
-//	} else {
-//		if(nowHour >= 13) {
-//			document.getElementById("hour").value = nowHour - 12;
-//		} else {
-//			document.getElementById("hour").value = nowHour;
-//		}
-//		let check_pm = document.getElementById("radio_2");
-//		check_pm.checked = true;
-//	}
-//	
-//	document.getElementById("minute").value = nowMinute;
-//}
-
+//システム日時
 function setTime() {
 	let today = new Date();
     let hours = today.getHours();
@@ -84,7 +58,7 @@ function ckbox1(){
     document.forms['form'].elements['check2'].checked=false;
     check_readonly();
  }
-  window.addEventListener('DOMContentLoaded',checkbox,false);
+  window.addEventListener('DOMContentLoaded',checkbox,false); //チェックボックスのイベントが発生したときに、メソッドが呼ばれる
 
   //印刷ボタン
 document.getElementById("print").onclick = function(){
@@ -136,5 +110,31 @@ function formCheck(){
     }
 
  }
+
+//宛先メッセージ
+function comment_message(){document.getElementById("submit_message").innerHTML = "";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

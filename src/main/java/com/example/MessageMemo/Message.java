@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity 
+@Entity //インスタンスを作る、定義書と同じ
 @Table(name="T_MESSAGE") 
 public class Message {   
 	@Id 
@@ -24,8 +24,8 @@ public class Message {
 	@Column(name="RECEIV_TIME" ,nullable = false ,columnDefinition = "datetime")
 	private Timestamp receiv_time;
 	
-	@Column(name="CUSTOMER_CD" ,columnDefinition = "VARCHAR(4)") 
-	private String customer_cd;
+	@Column(name="CUSTMER_CD" ,columnDefinition = "VARCHAR(4)") 
+	private String custmer_cd;
 	
 	@Column(name="SENDER" ,nullable = false ,columnDefinition = "VARCHAR(40)")
 	private String sender;
@@ -79,12 +79,12 @@ public class Message {
 		this.receiv_time = receiv_time;
 	}
 	
-	public String getCustomer_cd(){
-		return customer_cd;
+	public String getCustmer_cd(){
+		return custmer_cd;
 	}
 	
 	public void setCustomer_cd(String customer_cd) {
-		this.customer_cd = customer_cd;
+		this.custmer_cd = customer_cd;
 	}
 	
 	public String getSender(){
@@ -115,7 +115,7 @@ public class Message {
 	public void setAll(  int m_id  
 						,String to_name
 						,String receiver_cd
-						,Timestamp receiv_time //Timestamp Timestamp クライアント(html)で何年何月何日と文字列で入力されたらTimestamp Timestampに変換されフィールドに入る
+						,Timestamp ts //Timestamp Timestamp クライアント(html)で何年何月何日と文字列で入力されたらTimestamp Timestampに変換されフィールドに入る
 						,String customer_cd
 						,String sender
 						,String message_cd
@@ -124,8 +124,8 @@ public class Message {
 		this.m_id = m_id;
 		this.to_name = to_name;
 		this.receiver_cd = receiver_cd;
-		this.receiv_time = receiv_time; 
-		this.customer_cd = customer_cd;
+		this.receiv_time = ts; 
+		this.custmer_cd = customer_cd;
 		this.sender = sender;
 		this.message_cd = message_cd;
 		this.memo = memo;
@@ -146,7 +146,7 @@ public class Message {
 	public Timestamp getCreate_date() {
 		return create_date;
 	}
-	public void setCreatedate_date(Timestamp create_date) {
+	public void setCreate_date(Timestamp create_date) {
 		this.create_date = create_date;
 	}
 	public String getCreate_user() {

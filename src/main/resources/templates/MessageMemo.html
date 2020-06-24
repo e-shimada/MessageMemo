@@ -17,27 +17,23 @@
           	<input id="print" type="button" class="btn btn-lg btn-outline-light col-1" value="印刷">
         </nav>
         
-       	<form id="form" name="form" method="post" onsubmit="return formCheck()">
-       	<div class="box">
-       
-       	<!-- メッセージ:対応のいずれかにチェックして下さい -->
-       	<div class="deal_with">
-       		<p id="notice-input-text-1" style="display: none; color: black;">※対応のいずれかにチェックして下さい</p>
-       	</div>
-       
-       	<!-- メッセージ:伝言内容を入力して下さい -->
-       	<div class="comment">
-         	<p id="notice-input-text-2" style="display: none; color: black;" >※伝言内容を入力して下さい</p>
-       	</div>
+       	<form id="form" name="form" method="post" onsubmit="return formCheck()" action="/msgmemo/inputForm" onclick="comment_message()">
        	
-       	<!-- さん宛てのメッセージを登録(register)しました。 -->
-       	<!-- <div class="register"> -->
-         	<!-- <p id="notice-input-text-2" style="display: none; color: black;" class="text-right"> さんあ宛てのメッセージを登録しました。</p> -->
-       	<!--</div>-->
+       	<div class="box">
+        <!-- メッセージ表示 -->
+       	<div class="deal_with">
+       			<!-- メッセージ:対応のいずれかにチェックして下さい -->
+       			<!-- メッセージ:伝言内容を入力して下さい -->
+       			<!-- さん宛てのメッセージを登録(register)しました。 -->
+       			<p id="notice-input-text-1" style="display: none; color: black;">※対応のいずれかにチェックして下さい</p>
+       			<p id="notice-input-text-2" style="display: none; color: black;" >※伝言内容を入力して下さい</p>
+     			<p th:text="${call}" id="submit_message"></p>
+     	</div>
        
+       		
         <!--～さん宛て-->
         <div class="to_user">
-             <input type="text" maxlength=40 name="to_user" style="width: 200px; height: 30px;" required="required"><span>さん宛て</span>
+             <input type="text" maxlength=40 name="to_name" style="width: 200px; height: 30px;" required="required"><span>さん宛て</span>
         </div>
             
         <!--受電日時-->
@@ -47,22 +43,22 @@
 
 		<!-- 年月日 -->
         <div class="today_year">
-             <input type="text" size="4" maxlength="4" oninput="value = value.replace(/[^0-9]+/i,'');" name="today_year" id="today_year" required="required"><span>年</span>
-             <input type="text" size="4" maxlength="2" oninput="value = value.replace(/[^0-9]+/i,'');" name="today_month" id="today_month" required="required"><span>月</span>
-             <input type="text" size="4" maxlength="2" oninput="value = value.replace(/[^0-9]+/i,'');" name="today_day" id="today_day" required="required"><span>日</span>
+             <input type="text" size="4" maxlength="4" oninput="value = value.replace(/[^0-9]+/i,'');" name="receiv_time" id="today_year" required="required"><span>年</span>
+             <input type="text" size="4" maxlength="2" oninput="value = value.replace(/[^0-9]+/i,'');" name="receiv_time" id="today_month" required="required"><span>月</span>
+             <input type="text" size="4" maxlength="2" oninput="value = value.replace(/[^0-9]+/i,'');" name="receiv_time" id="today_day" required="required"><span>日</span>
         </div>
             
         <!--AM/PMのチェックボックス-->
         <div class="AM">
              <div class="morning">
-				<input type="radio" name="radio" id="am" required="required"><span>AM</span>
+				<input type="radio" name="receiv_time" id="am" value="am" required="required"><span>AM</span>
              </div>
-             <input type="radio" name="radio" id="pm" required="required"><span>PM</span>
+             <input type="radio" name="receiv_time" id="pm" value="pm" required="required"><span>PM</span>
         </div>
             
         <!--時間-->
        　	<div class="time">
-             <select id="hour" name="hour" required="required">
+             <select id="hour" name="receiv_time" required="required">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -77,7 +73,7 @@
                         <option value="12">12</option>
               </select><span>時</span>
                                           
-              <select id="minute" name="minute" required="required">
+              <select id="minute" name="receiv_time" required="required">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -148,7 +144,7 @@
 
                 <!--会社名のリストボックス-->
                 <div class="company">
-                    <select style="width: 390px;">
+                    <select style="width: 390px;" name="customer_cd">
                   		
                   		<!-- 初期表示・最初の画面は空白 -->
                     	<option value=""></option> 
@@ -167,7 +163,7 @@
            
                 <!--氏名記入欄-->
                 <div class="company_name">
-                    <input type="text" size="50" maxlength="40" name="company_name" required="required">
+                    <input type="text" size="50" maxlength="40" name="sender" required="required">
                 </div>
 
                 <!--対応-->
@@ -177,9 +173,9 @@
            
                 <!--対応のチェックリスト-->
                 <ul class="list-unstyled list">
-                    <li><input type="checkbox" name="check1" id="check1" ><span>もう一度お願いします</span></li>
-                    <li><input type="checkbox" name="check2" id="check2"><span>折り返しお願いします</span></li>
-                    <li><input type="checkbox" name="check3" id="check3"><span>伝言あります</span>
+                    <li><input type="checkbox" name="message_cd" id="check1" value="1"><span>もう一度お願いします</span></li>
+                    <li><input type="checkbox" name="message_cd" id="check2" value="2"><span>折り返しお願いします</span></li>
+                    <li><input type="checkbox" name="message_cd" id="check3" value="3"><span>伝言あります</span>
                　　　　　　　　	</ul>
                
 
@@ -196,7 +192,7 @@
         
                 <!--受電者リストボックス-->
                 <div class="from_user">
-                    <select style="width: 200px;" required="required">
+                    <select style="width: 200px;" required="required" name="receiver_cd">
                     	<option value=""></option>　<!-- 初期表示・最初の画面は空白 -->
                     	<!-- 受電者のリストを選択 -->
                         <option th:each="employee : ${employeelist}" th:object="${employee}" th:value="*{e_num}" id="td_num" th:text="*{e_name}">
@@ -211,7 +207,7 @@
 
         </div>
         </form>
-        <script th:src="@{/MessageMemo.js}" type="text/javascript"></script>
+       <script th:src="@{/MessageMemo.js}" type="text/javascript"></script>
         
        
     </body>
