@@ -75,7 +75,7 @@ public class MessageMemoController {
 		     int num = Integer.parseInt(split[4]); //整数型に変換
 		     String StrH = " ";
 		    	 
-		    	 if(split[3] == "pm") {
+		    	 if(split[3].equals("pm")) { //文字列の比較 文字列1.equals(文字列2) split[3]がpmという文字列が入ったとき
 		    		 StrH = Integer.toString(num+12);
 		    	 }else {
 		    		 StrH = split[4]; //[4]の文字列がStrHに入る
