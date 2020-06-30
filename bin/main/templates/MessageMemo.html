@@ -41,11 +41,11 @@
              <span>受電日時</span>
         </div>
 
-		<!-- 年月日 -->
+		<!-- 年月日 --><!-- pattern="\d{1,4}" 1桁～4桁の数字が入る ,=~から-->
         <div class="today_year">
-             <input type="text" size="4" maxlength="4" oninput="value = value.replace(/[^0-9]+/i,'');" name="receiv_time" id="today_year" required="required"><span>年</span>
-             <input type="text" size="4" maxlength="2" oninput="value = value.replace(/[^0-9]+/i,'');" name="receiv_time" id="today_month" required="required"><span>月</span>
-             <input type="text" size="4" maxlength="2" oninput="value = value.replace(/[^0-9]+/i,'');" name="receiv_time" id="today_day" required="required"><span>日</span>
+             <input type="text" size="4" maxlength="4" pattern="\d{1,4}"  name="receiv_time" id="today_year" required="required"><span>年</span>
+             <input type="text" size="4" maxlength="2" pattern="\d{1,2}" name="receiv_time" id="today_month" required="required"><span>月</span>
+             <input type="text" size="4" maxlength="2" pattern="\d{1,2}" name="receiv_time" id="today_day" required="required"><span>日</span>
         </div>
             
         <!--AM/PMのチェックボックス-->
